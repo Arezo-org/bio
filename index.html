@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff5fb">
+  <title>دنبال چی می‌گردی فضول؟ 😏</title>
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: grid; place-items: center;
+      padding: 24px; font-family: Tahoma, Arial, sans-serif;
+      color: #6b294d; background:
+        radial-gradient(ellipse at 20% 15%, rgba(255,182,213,.55), transparent 45%),
+        radial-gradient(ellipse at 85% 80%, rgba(255,214,231,.65), transparent 42%),
+        #fffafd;
+    }
+    .card {
+      width: min(100%, 520px); text-align: center; padding: clamp(24px, 6vw, 42px);
+      border: 1px solid #f2b8d2; border-radius: 28px;
+      background: rgba(255,255,255,.95); box-shadow: 0 24px 90px rgba(183,94,137,.16); position: relative;
+      animation: appear .7s ease both;
+    }
+    .emoji {
+      display: grid; place-items: center; width: 76px; height: 76px; margin: 0 auto 22px;
+      border-radius: 24px; background: #ffe3ef; font-size: 38px;
+      box-shadow: 0 0 35px rgba(236,129,177,.18);
+    }
+    h1 { font-size: clamp(27px, 6vw, 38px); line-height: 1.4; margin: 0 0 18px; }
+    .headline { color: #e65a9a; margin: 0 0 22px; font-size: clamp(21px, 4.5vw, 27px); font-weight: 800; }
+    .copy { color: #75445d; line-height: 2; font-size: 17px; margin: 0 0 26px; }
+    .notice {
+      padding: 20px 16px; border-radius: 20px; border: 1px solid #f0a9ca;
+      background: linear-gradient(145deg, #ffe4f0, #fff2f8); color: #8a315b;
+      animation: glow 2.8s ease-in-out infinite alternate;
+    }
+    .notice .send { font-size: 30px; margin-bottom: 10px; }
+    .notice p { font-size: clamp(17px, 4vw, 21px); line-height: 1.8; font-weight: 700; margin: 0; }
+    .discord-invite {
+      margin-top: 18px; padding: 18px 16px; border-radius: 20px;
+      border: 1px solid #f0a9ca; background: #fff;
+      box-shadow: 0 8px 24px rgba(183,94,137,.10);
+    }
+    .discord-invite p { margin: 0 0 12px; line-height: 1.9; font-size: 16px; font-weight: 700; }
+    .discord-link {
+      display: inline-block; padding: 10px 18px; border-radius: 12px;
+      background: #e65a9a; color: #fff; text-decoration: none; font-weight: 700;
+    }
+    .discord-link:focus-visible { outline: 3px solid #f4c430; outline-offset: 3px; }
+    .foot { color: #d95b96; font-size: 12px; margin: 24px 0 0; }
+    .stars { position: absolute; color: #f4c430; font-size: 23px; pointer-events: none; text-shadow: 0 1px 2px rgba(173,120,0,.12); }
+    .star-one { top: 20px; left: 22px; } .star-two { top: 92px; right: 20px; font-size: 17px; }
+    .star-three { bottom: 95px; left: 25px; font-size: 19px; } .star-four { bottom: 22px; right: 36px; font-size: 15px; }
+    .prank-button { margin-top: 22px; width: 100%; padding: 15px 18px; border: 0; border-radius: 16px; background: linear-gradient(135deg, #f17db1, #e65a9a); color: white; font: 700 16px Tahoma, Arial, sans-serif; cursor: pointer; box-shadow: 0 8px 20px rgba(230,90,154,.22); transition: transform .15s ease, filter .15s ease; }
+    .prank-button:hover { filter: brightness(1.04); transform: translateY(-1px); }
+    .prank-button:focus-visible { outline: 3px solid #f4c430; outline-offset: 3px; }
+    @keyframes appear { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes glow { from { box-shadow: 0 0 0 rgba(236,129,177,0); } to { box-shadow: 0 0 28px rgba(236,129,177,.18); } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <span class="stars star-one" aria-hidden="true">✦</span>
+    <span class="stars star-two" aria-hidden="true">★</span>
+    <span class="stars star-three" aria-hidden="true">✧</span>
+    <span class="stars star-four" aria-hidden="true">✦</span>
+    <div class="emoji" aria-hidden="true">👀</div>
+    <h1>دنبال چی می‌گردی فضول؟ 😏</h1>
+    <p class="headline">کنجکاوی کار دستت داد! 😂</p>
+    <p class="copy">فکر کردی می‌تونی یواشکی پروفایلم رو چک کنی؟ 👀</p>
+    <section class="notice" aria-live="polite">
+      <div class="send" aria-hidden="true">📩</div>
+      <p>آیدی دیسکوردت برام ارسال شد ☺️</p>
+    </section>
+    <button class="prank-button" id="prankButton" type="button">اگه میخوای آیدیت ارسال نشه کلیک کن</button>
+    <section class="discord-invite">
+      <p>حالا که فضولی کردی میتونی توی چنل دیسکوردم جوین بشی 😎</p>
+      <a class="discord-link" href="https://discord.gg/w9SVK4Akyt" target="_blank" rel="noopener noreferrer">جوین شدن به دیسکورد 💬</a>
+    </section>
+  </main>
+  <script>
+    document.getElementById("prankButton").addEventListener("click", function () {
+      this.textContent = "دیگه کار از کار گذشته آیدیتو دارم خنگ😂";
+      this.disabled = true;
+      this.setAttribute("aria-live", "polite");
+    });
+  </script>
+</body>
+</html>
