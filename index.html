@@ -100,7 +100,7 @@ Arezo Moghadam
       badge.classList.add("show");
       var seen = false;
       try { seen = localStorage.getItem("visited_" + KEY) === "1"; } catch (e) {}
- 
+
       // چند سرویس به ترتیب امتحان میشن؛ اگه یکی بلاک بود بعدی جواب میده
       var services = [
         { url: "https://api.counterapi.dev/v1/" + NS + "/" + KEY + (seen ? "" : "/up"),
@@ -108,13 +108,18 @@ Arezo Moghadam
         { url: "https://abacus.jasoncameron.dev/" + (seen ? "get" : "hit") + "/" + NS + "/" + KEY,
           pick: function (d) { return d.value; } }
       ];
- 
+
       function tryService(i) {
         if (i >= services.length) { out.textContent = "نامشخص"; return; }
         var ctl = new AbortController();
-        var t = setTimeout(function () { ctl.abort(); }, 6000);
-        fetch(services[i].url, { signal: ctl.signal })
-          .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+        var t = setTimeout(function () { ctl.abort(); }, 10000);
+        function call() {
+          return fetch(services[i].url, { signal: ctl.signal })
+            .then(function (r) { if (!r.ok) throw 0; return r.json(); });
+        }
+        // بازدیدکننده جدید: دو بار شمرده میشه (هر ورود = ۲ تا). عدد برای مرورگرهای تکراری فقط خونده میشه
+        var req = seen ? call() : call().then(function () { return call(); });
+        req
           .then(function (d) {
             clearTimeout(t);
             var n = services[i].pick(d);
@@ -134,5 +139,3 @@ Arezo Moghadam
   </script>
 </body>
 </html>
-
- 
