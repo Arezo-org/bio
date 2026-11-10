@@ -17,7 +17,7 @@
            url("BKoodak.ttf") format("truetype");
       font-display: swap;
     }
-
+ 
     :root {
       --ink: #4d1d3a;
       --muted: #9b6a85;
@@ -35,12 +35,12 @@
       padding: 32px 24px 76px; font-family: var(--body); color: var(--ink); overflow-x: hidden;
       background: linear-gradient(160deg, #ffffff 0%, #fff1f8 48%, #ffdbeb 100%) fixed;
     }
-
+ 
     /* آسمان و افکت‌ها */
     #sky, #fx { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; }
     #sky { z-index: 0; }
     #fx { z-index: 50; }
-
+ 
     .blobs { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
     .blobs i { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .65; }
     .blobs i:nth-child(1) { width: 400px; height: 400px; background: #ffc2dc; top: -140px; right: -120px; animation: drift1 16s ease-in-out infinite alternate; }
@@ -49,7 +49,7 @@
     @keyframes drift1 { to { transform: translate(-140px, 160px) scale(1.2); } }
     @keyframes drift2 { to { transform: translate(180px, -120px) scale(1.15); } }
     @keyframes drift3 { to { transform: translate(-160px, -90px) scale(1.3); } }
-
+ 
     /* شمارنده بازدیدکننده: همیشه ثابت گوشه صفحه */
     .visitor-badge {
       position: fixed; top: 14px; left: 14px; z-index: 60;
@@ -58,13 +58,13 @@
       font-size: 16px; color: var(--ink); box-shadow: 0 10px 26px -10px rgba(255,95,162,.55);
     }
     .visitor-badge b { font-weight: 400; color: var(--pink); min-width: 2ch; text-align: center; }
-
+ 
     main { position: relative; z-index: 2; width: min(100%, 460px); display: grid; gap: 16px; }
     .stage { perspective: 1100px; }
-
+ 
     .reveal { opacity: 0; transform: translateY(20px); animation: rise .85s var(--d, 0s) cubic-bezier(.2,.8,.2,1) forwards; }
     @keyframes rise { to { opacity: 1; transform: none; } }
-
+ 
     /* کارت اصلی با تیلت سه‌بعدی */
     .card {
       --rx: 0deg; --ry: 0deg; --mx: 50%; --my: 30%;
@@ -78,7 +78,7 @@
       content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
       background: radial-gradient(circle at var(--mx) var(--my), rgba(255,95,162,.1), transparent 46%);
     }
-
+ 
     /* چشم‌های فضول */
     .eyes-wrap { position: relative; margin-bottom: 20px; }
     .eyes { display: flex; justify-content: center; gap: 12px; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
@@ -113,7 +113,7 @@
     .eyes.happy .pupil { background: none; width: auto; height: auto; color: var(--pink); font-size: 26px; line-height: 1; transform: none !important; }
     .eyes.happy .pupil::before { content: "♥"; }
     .eyes.happy .pupil::after { display: none; }
-
+ 
     h1 { font-family: var(--title); font-weight: 400; font-size: clamp(30px, 8.5vw, 42px); line-height: 1.4; margin: 0 0 4px; }
     .w {
       display: inline-block; opacity: 0; transform: translateY(26px) scale(.88);
@@ -124,10 +124,10 @@
     .w2 { display: inline-block; opacity: 0; transform: translateY(26px) scale(.88); animation: pop .75s calc(.45s + var(--i) * .13s) cubic-bezier(.2,1.4,.4,1) forwards; }
     @keyframes pop { to { opacity: 1; transform: none; } }
     @keyframes shimmer { to { background-position: -250% 0; } }
-
+ 
     .sub { font-size: 20px; color: var(--pink); margin: 0 0 14px; min-height: 1.8em; }
     .copy { font-size: 17px; line-height: 2; color: var(--muted); margin: 0 0 24px; }
-
+ 
     /* اعلان ارسال آیدی */
     .notice { padding: 14px 18px 16px; border-radius: 20px; background: var(--blush); border: 1.5px solid var(--line); }
     .n-row { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 18px; color: #a23a6d; }
@@ -138,7 +138,7 @@
     .notice.done .n-row em { display: none; }
     .notice.done { animation: pulse 1.2s ease-out 1; }
     @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255,95,162,.45); } 100% { box-shadow: 0 0 0 22px rgba(255,95,162,0); } }
-
+ 
     /* دکمه شوخی */
     .prank {
       margin-top: 16px; width: 100%; padding: 14px 18px; border: 0; border-radius: 16px; cursor: pointer;
@@ -149,7 +149,7 @@
     }
     .prank:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 18px 30px -10px rgba(255,79,154,.85); }
     .prank:disabled { cursor: default; background: var(--blush); color: #a23a6d; box-shadow: inset 0 0 0 1.5px var(--pink); }
-
+ 
     /* دعوت به دیسکورد */
     .invite {
       display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 16px 20px; border-radius: 26px;
@@ -168,9 +168,9 @@
     }
     @keyframes sweep { 0% { left: -60%; } 45%, 100% { left: 140%; } }
     .link:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 16px 30px -8px rgba(255,79,154,.85); }
-
+ 
     button:focus-visible, .link:focus-visible { outline: 3px solid #ffb703; outline-offset: 3px; }
-
+ 
     /* ورود: اسم، سوال‌ها، جواب‌های شوخی */
     #app { display: none; }
     #gate { transition: opacity .4s ease, transform .4s ease; }
@@ -201,7 +201,7 @@
     }
     .g-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 18px 30px -10px rgba(255,79,154,.85); }
     .g-btn:disabled { opacity: .4; cursor: not-allowed; box-shadow: none; }
-
+ 
     .opts { display: grid; gap: 10px; margin: 0 0 6px; text-align: right; }
     .opt {
       position: relative; display: flex; align-items: center; gap: 12px; padding: 13px 16px; font-size: 18px; cursor: pointer;
@@ -219,14 +219,14 @@
     .opt input:checked + .box::after { transform: scale(1); }
     .opt:has(input:checked) { background: var(--blush); border-color: var(--pink); }
     .opt input:focus-visible + .box { outline: 3px solid #ffb703; outline-offset: 2px; }
-
+ 
     .answers { display: grid; gap: 10px; text-align: right; margin: 0 0 14px; }
     .ans { padding: 12px 16px; border-radius: 16px; background: var(--blush); opacity: 0; transform: translateY(12px); animation: ansIn .55s var(--d, 0s) cubic-bezier(.2,.8,.2,1) forwards; }
     .ans small { display: block; font-size: 14px; color: var(--muted); margin-bottom: 2px; }
     .ans span { font-size: 18px; color: var(--ink); line-height: 1.8; }
     .g-next { opacity: 0; animation: ansIn .55s var(--d, 0s) forwards; }
     @keyframes ansIn { to { opacity: 1; transform: none; } }
-
+ 
     /* اعلان دوستی (شوخی) */
     .toast {
       position: fixed; top: 66px; left: 50%; z-index: 70; width: min(92vw, 380px);
@@ -250,10 +250,10 @@
     .t-btns button:hover { transform: translateY(-1px); }
     .t-yes { background: linear-gradient(135deg, #ff7ab8, #ff4f9a); color: #fff; }
     .t-no { background: var(--blush); color: var(--ink); }
-
+ 
     .foot { text-align: center; padding-top: 2px; }
     .foot .name { font-family: var(--title); font-size: 19px; color: var(--ink); opacity: .7; direction: ltr; letter-spacing: .5px; }
-
+ 
     @media (max-width: 420px) { .invite { flex-direction: column; text-align: center; } .link { width: 100%; text-align: center; } }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -267,17 +267,17 @@
   <canvas id="sky" aria-hidden="true"></canvas>
   <div class="blobs" aria-hidden="true"><i></i><i></i><i></i></div>
   <canvas id="fx" aria-hidden="true"></canvas>
-
+ 
   <div class="visitor-badge" id="visitorBadge" aria-live="polite">
     <span aria-hidden="true">👥</span><span>بازدیدکننده:</span><b id="visitorCount">...</b>
   </div>
-
+ 
   <div class="toast" id="toast" role="alert" aria-live="assertive">
     <div class="t-ico" aria-hidden="true">🔔</div>
     <div class="t-txt"><b>درخواست دوستی جدید</b><span id="toastMsg">آرزو می‌خواد باهات دوست بشه 🎀</span></div>
     <div class="t-btns"><button class="t-yes" type="button">قبول</button><button class="t-no" type="button">رد</button></div>
   </div>
-
+ 
   <main id="gate">
     <section class="card g-card">
       <div class="step active" id="stepName">
@@ -290,7 +290,7 @@
         </div>
         <p class="g-note">اسمت فقط همین‌جا می‌مونه و جایی ذخیره نمی‌شه 💗</p>
       </div>
-
+ 
       <div class="step" id="stepQ">
         <div class="g-ico" aria-hidden="true">🤔</div>
         <h2 class="g-title" id="qTitle">سلام 👋</h2>
@@ -305,7 +305,7 @@
         </div>
         <button class="g-btn" id="qBtn" type="button" disabled>ثبت جواب‌ها ✨</button>
       </div>
-
+ 
       <div class="step" id="stepA">
         <div class="g-ico" aria-hidden="true">😏</div>
         <h2 class="g-title">جواب‌ها اینان:</h2>
@@ -314,7 +314,7 @@
       </div>
     </section>
   </main>
-
+ 
   <main id="app">
     <div class="stage reveal" style="--d:.05s">
       <section class="card" id="card">
@@ -325,9 +325,8 @@
           </div>
           <span class="bubble" id="bubble" aria-live="polite"></span>
         </div>
-
+ 
         <h1 aria-label="تو دیگه بیش از اندازه فضولی">
           <span class="w" style="--i:0" aria-hidden="true">تو</span>
           <span class="w" style="--i:1" aria-hidden="true">دیگه</span>
-          <span class="w" style="--i:2" aria-hidden="true">بیش</span>
-          <span 
+          <span class="
