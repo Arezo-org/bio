@@ -17,7 +17,7 @@
            url("BKoodak.ttf") format("truetype");
       font-display: swap;
     }
- 
+
     :root {
       --ink: #4d1d3a;
       --muted: #9b6a85;
@@ -35,12 +35,12 @@
       padding: 32px 24px 76px; font-family: var(--body); color: var(--ink); overflow-x: hidden;
       background: linear-gradient(160deg, #ffffff 0%, #fff1f8 48%, #ffdbeb 100%) fixed;
     }
- 
+
     /* آسمان و افکت‌ها */
     #sky, #fx { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; }
     #sky { z-index: 0; }
     #fx { z-index: 50; }
- 
+
     .blobs { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
     .blobs i { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .65; }
     .blobs i:nth-child(1) { width: 400px; height: 400px; background: #ffc2dc; top: -140px; right: -120px; animation: drift1 16s ease-in-out infinite alternate; }
@@ -49,7 +49,7 @@
     @keyframes drift1 { to { transform: translate(-140px, 160px) scale(1.2); } }
     @keyframes drift2 { to { transform: translate(180px, -120px) scale(1.15); } }
     @keyframes drift3 { to { transform: translate(-160px, -90px) scale(1.3); } }
- 
+
     /* شمارنده بازدیدکننده: همیشه ثابت گوشه صفحه */
     .visitor-badge {
       position: fixed; top: 14px; left: 14px; z-index: 60;
@@ -58,13 +58,13 @@
       font-size: 16px; color: var(--ink); box-shadow: 0 10px 26px -10px rgba(255,95,162,.55);
     }
     .visitor-badge b { font-weight: 400; color: var(--pink); min-width: 2ch; text-align: center; }
- 
+
     main { position: relative; z-index: 2; width: min(100%, 460px); display: grid; gap: 16px; }
     .stage { perspective: 1100px; }
- 
+
     .reveal { opacity: 0; transform: translateY(20px); animation: rise .85s var(--d, 0s) cubic-bezier(.2,.8,.2,1) forwards; }
     @keyframes rise { to { opacity: 1; transform: none; } }
- 
+
     /* کارت اصلی با تیلت سه‌بعدی */
     .card {
       --rx: 0deg; --ry: 0deg; --mx: 50%; --my: 30%;
@@ -78,7 +78,7 @@
       content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
       background: radial-gradient(circle at var(--mx) var(--my), rgba(255,95,162,.1), transparent 46%);
     }
- 
+
     /* چشم‌های فضول */
     .eyes-wrap { position: relative; margin-bottom: 20px; }
     .eyes { display: flex; justify-content: center; gap: 12px; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
@@ -113,7 +113,7 @@
     .eyes.happy .pupil { background: none; width: auto; height: auto; color: var(--pink); font-size: 26px; line-height: 1; transform: none !important; }
     .eyes.happy .pupil::before { content: "♥"; }
     .eyes.happy .pupil::after { display: none; }
- 
+
     h1 { font-family: var(--title); font-weight: 400; font-size: clamp(30px, 8.5vw, 42px); line-height: 1.4; margin: 0 0 4px; }
     .w {
       display: inline-block; opacity: 0; transform: translateY(26px) scale(.88);
@@ -124,10 +124,10 @@
     .w2 { display: inline-block; opacity: 0; transform: translateY(26px) scale(.88); animation: pop .75s calc(.45s + var(--i) * .13s) cubic-bezier(.2,1.4,.4,1) forwards; }
     @keyframes pop { to { opacity: 1; transform: none; } }
     @keyframes shimmer { to { background-position: -250% 0; } }
- 
+
     .sub { font-size: 20px; color: var(--pink); margin: 0 0 14px; min-height: 1.8em; }
     .copy { font-size: 17px; line-height: 2; color: var(--muted); margin: 0 0 24px; }
- 
+
     /* اعلان ارسال آیدی */
     .notice { padding: 14px 18px 16px; border-radius: 20px; background: var(--blush); border: 1.5px solid var(--line); }
     .n-row { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 18px; color: #a23a6d; }
@@ -138,7 +138,7 @@
     .notice.done .n-row em { display: none; }
     .notice.done { animation: pulse 1.2s ease-out 1; }
     @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255,95,162,.45); } 100% { box-shadow: 0 0 0 22px rgba(255,95,162,0); } }
- 
+
     /* دکمه شوخی */
     .prank {
       margin-top: 16px; width: 100%; padding: 14px 18px; border: 0; border-radius: 16px; cursor: pointer;
@@ -149,7 +149,7 @@
     }
     .prank:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 18px 30px -10px rgba(255,79,154,.85); }
     .prank:disabled { cursor: default; background: var(--blush); color: #a23a6d; box-shadow: inset 0 0 0 1.5px var(--pink); }
- 
+
     /* دعوت به دیسکورد */
     .invite {
       display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 16px 20px; border-radius: 26px;
@@ -168,9 +168,9 @@
     }
     @keyframes sweep { 0% { left: -60%; } 45%, 100% { left: 140%; } }
     .link:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 16px 30px -8px rgba(255,79,154,.85); }
- 
+
     button:focus-visible, .link:focus-visible { outline: 3px solid #ffb703; outline-offset: 3px; }
- 
+
     /* ورود: اسم، سوال‌ها، جواب‌های شوخی */
     #app { display: none; }
     #gate { transition: opacity .4s ease, transform .4s ease; }
@@ -201,7 +201,7 @@
     }
     .g-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 18px 30px -10px rgba(255,79,154,.85); }
     .g-btn:disabled { opacity: .4; cursor: not-allowed; box-shadow: none; }
- 
+
     .opts { display: grid; gap: 10px; margin: 0 0 6px; text-align: right; }
     .opt {
       position: relative; display: flex; align-items: center; gap: 12px; padding: 13px 16px; font-size: 18px; cursor: pointer;
@@ -219,14 +219,14 @@
     .opt input:checked + .box::after { transform: scale(1); }
     .opt:has(input:checked) { background: var(--blush); border-color: var(--pink); }
     .opt input:focus-visible + .box { outline: 3px solid #ffb703; outline-offset: 2px; }
- 
+
     .answers { display: grid; gap: 10px; text-align: right; margin: 0 0 14px; }
     .ans { padding: 12px 16px; border-radius: 16px; background: var(--blush); opacity: 0; transform: translateY(12px); animation: ansIn .55s var(--d, 0s) cubic-bezier(.2,.8,.2,1) forwards; }
     .ans small { display: block; font-size: 14px; color: var(--muted); margin-bottom: 2px; }
     .ans span { font-size: 18px; color: var(--ink); line-height: 1.8; }
     .g-next { opacity: 0; animation: ansIn .55s var(--d, 0s) forwards; }
     @keyframes ansIn { to { opacity: 1; transform: none; } }
- 
+
     /* اعلان دوستی (شوخی) */
     .toast {
       position: fixed; top: 66px; left: 50%; z-index: 70; width: min(92vw, 380px);
@@ -250,10 +250,10 @@
     .t-btns button:hover { transform: translateY(-1px); }
     .t-yes { background: linear-gradient(135deg, #ff7ab8, #ff4f9a); color: #fff; }
     .t-no { background: var(--blush); color: var(--ink); }
- 
+
     .foot { text-align: center; padding-top: 2px; }
     .foot .name { font-family: var(--title); font-size: 19px; color: var(--ink); opacity: .7; direction: ltr; letter-spacing: .5px; }
- 
+
     @media (max-width: 420px) { .invite { flex-direction: column; text-align: center; } .link { width: 100%; text-align: center; } }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -267,17 +267,17 @@
   <canvas id="sky" aria-hidden="true"></canvas>
   <div class="blobs" aria-hidden="true"><i></i><i></i><i></i></div>
   <canvas id="fx" aria-hidden="true"></canvas>
- 
+
   <div class="visitor-badge" id="visitorBadge" aria-live="polite">
     <span aria-hidden="true">👥</span><span>بازدیدکننده:</span><b id="visitorCount">...</b>
   </div>
- 
+
   <div class="toast" id="toast" role="alert" aria-live="assertive">
     <div class="t-ico" aria-hidden="true">🔔</div>
     <div class="t-txt"><b>درخواست دوستی جدید</b><span id="toastMsg">آرزو می‌خواد باهات دوست بشه 🎀</span></div>
     <div class="t-btns"><button class="t-yes" type="button">قبول</button><button class="t-no" type="button">رد</button></div>
   </div>
- 
+
   <main id="gate">
     <section class="card g-card">
       <div class="step active" id="stepName">
@@ -290,7 +290,7 @@
         </div>
         <p class="g-note">اسمت فقط همین‌جا می‌مونه و جایی ذخیره نمی‌شه 💗</p>
       </div>
- 
+
       <div class="step" id="stepQ">
         <div class="g-ico" aria-hidden="true">🤔</div>
         <h2 class="g-title" id="qTitle">سلام 👋</h2>
@@ -305,7 +305,7 @@
         </div>
         <button class="g-btn" id="qBtn" type="button" disabled>ثبت جواب‌ها ✨</button>
       </div>
- 
+
       <div class="step" id="stepA">
         <div class="g-ico" aria-hidden="true">😏</div>
         <h2 class="g-title">جواب‌ها اینان:</h2>
@@ -314,7 +314,7 @@
       </div>
     </section>
   </main>
- 
+
   <main id="app">
     <div class="stage reveal" style="--d:.05s">
       <section class="card" id="card">
@@ -325,8 +325,411 @@
           </div>
           <span class="bubble" id="bubble" aria-live="polite"></span>
         </div>
- 
+
         <h1 aria-label="تو دیگه بیش از اندازه فضولی">
           <span class="w" style="--i:0" aria-hidden="true">تو</span>
           <span class="w" style="--i:1" aria-hidden="true">دیگه</span>
-          <span class="
+          <span class="w" style="--i:2" aria-hidden="true">بیش</span>
+          <span class="w" style="--i:3" aria-hidden="true">از</span>
+          <span class="w" style="--i:4" aria-hidden="true">اندازه</span>
+          <span class="w" style="--i:5" aria-hidden="true">فضولی</span>
+          <span class="w2" style="--i:6" aria-hidden="true">😆</span>
+        </h1>
+        <p class="sub" id="sub">کنجکاوی کار دستت داد 😂</p>
+        <p class="copy">فکر کردی می‌تونی یواشکی پروفایلم رو چک کنی؟</p>
+
+        <div class="notice done" id="notice" aria-live="polite">
+          <div class="n-row"><span id="nText">آیدی دیسکوردت برام ارسال شد☺️</span><em id="nPct">۰٪</em></div>
+          <div class="bar" aria-hidden="true"><i id="barFill"></i></div>
+        </div>
+
+        <button class="prank" id="prankButton" type="button">اگه میخوای آیدیت ارسال نشه کلیک کن</button>
+      </section>
+    </div>
+
+    <section class="invite reveal" style="--d:.35s" aria-label="دعوت به دیسکورد">
+      <p>حالا که فضولی کردی،<br>میتونی توی چنل دیسکوردم جوین بشی</p>
+      <a class="link" href="https://discord.gg/w9SVK4Akyt" target="_blank" rel="noopener noreferrer">دیسکورد 🎀</a>
+    </section>
+
+    <footer class="foot reveal" style="--d:.55s">
+      <span class="name">Arezo Moghadam</span>
+    </footer>
+  </main>
+
+  <script>
+  (function () {
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var $ = function (s) { return document.querySelector(s); };
+    var rand = function (a, b) { return a + Math.random() * (b - a); };
+    var fa = function (n) { return Number(n).toLocaleString("fa-IR"); };
+
+    /* ---------- بوم‌ها ---------- */
+    var sky = $("#sky"), fx = $("#fx");
+    var sctx = sky.getContext("2d"), fctx = fx.getContext("2d");
+    var W = 0, H = 0, stars = [];
+
+    function resize() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = window.innerWidth; H = window.innerHeight;
+      [sky, fx].forEach(function (c) { c.width = W * dpr; c.height = H * dpr; });
+      sctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      fctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var count = Math.max(40, Math.min(120, Math.round(W * H / 12000)));
+      var cols = ["#ff7ab8", "#ffa6cf", "#ffc46b", "#d6a8ff"];
+      stars = [];
+      for (var i = 0; i < count; i++) {
+        stars.push({ x: rand(0, W), y: rand(0, H), r: rand(.8, 2.1), a: rand(.35, .85),
+                     sp: rand(500, 1400), ph: rand(0, 6.28), c: cols[(Math.random() * cols.length) | 0] });
+      }
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    /* ---------- ستاره‌های دنباله‌دار ---------- */
+    var shooters = [], dust = [], nextShoot = 900;
+    var palette = [[255, 95, 162], [255, 140, 192], [255, 184, 100], [196, 140, 255]];
+
+    function spawnShooter() {
+      var a = rand(20, 38) * Math.PI / 180, sp = rand(.7, 1.05), col = palette[(Math.random() * palette.length) | 0];
+      shooters.push({
+        x: rand(W * .25, W * 1.1), y: rand(-40, H * .38),
+        vx: -Math.cos(a) * sp, vy: Math.sin(a) * sp, sp: sp,
+        len: rand(110, 210), ttl: rand(1300, 2000), life: 0, col: col
+      });
+      if (Math.random() < .3) nextShoot = rand(180, 420); // گاهی دوتایی
+    }
+
+    function drawSky(t, dt) {
+      sctx.clearRect(0, 0, W, H);
+      for (var i = 0; i < stars.length; i++) {
+        var s = stars[i];
+        sctx.globalAlpha = reduce ? s.a * .8 : s.a * (.45 + .55 * Math.sin(t / s.sp + s.ph));
+        sctx.fillStyle = s.c;
+        sctx.beginPath(); sctx.arc(s.x, s.y, s.r, 0, 6.2832); sctx.fill();
+      }
+      sctx.globalAlpha = 1;
+      if (reduce) return;
+
+      nextShoot -= dt;
+      if (nextShoot <= 0) { spawnShooter(); if (nextShoot <= 0) nextShoot = rand(1300, 3000); }
+
+      for (var j = shooters.length - 1; j >= 0; j--) {
+        var h = shooters[j];
+        h.life += dt;
+        h.x += h.vx * dt; h.y += h.vy * dt;
+        var p = h.life / h.ttl;
+        if (p >= 1 || h.x < -260 || h.y > H + 260) { shooters.splice(j, 1); continue; }
+        var al = Math.sin(p * Math.PI); al = Math.min(1, al * 1.6);
+        var ux = h.vx / h.sp, uy = h.vy / h.sp, tx = h.x - ux * h.len, ty = h.y - uy * h.len;
+        var c = h.col, g = sctx.createLinearGradient(tx, ty, h.x, h.y);
+        g.addColorStop(0, "rgba(" + c[0] + "," + c[1] + "," + c[2] + ",0)");
+        g.addColorStop(1, "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + al + ")");
+        sctx.strokeStyle = g; sctx.lineWidth = 2.8; sctx.lineCap = "round";
+        sctx.beginPath(); sctx.moveTo(tx, ty); sctx.lineTo(h.x, h.y); sctx.stroke();
+        var rg = sctx.createRadialGradient(h.x, h.y, 0, h.x, h.y, 14);
+        rg.addColorStop(0, "rgba(255,255,255," + al + ")");
+        rg.addColorStop(.3, "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + al * .9 + ")");
+        rg.addColorStop(1, "rgba(" + c[0] + "," + c[1] + "," + c[2] + ",0)");
+        sctx.fillStyle = rg; sctx.beginPath(); sctx.arc(h.x, h.y, 14, 0, 6.2832); sctx.fill();
+        // گرد درخشان پشت ستاره
+        if (Math.random() < .75) {
+          var off = rand(8, h.len * .75);
+          dust.push({ x: h.x - ux * off + rand(-3, 3), y: h.y - uy * off + rand(-3, 3), r: rand(.7, 1.9), life: 0, ttl: rand(450, 900), col: c });
+        }
+      }
+      for (var k = dust.length - 1; k >= 0; k--) {
+        var d = dust[k]; d.life += dt;
+        if (d.life >= d.ttl) { dust.splice(k, 1); continue; }
+        sctx.globalAlpha = (1 - d.life / d.ttl) * .85;
+        sctx.fillStyle = "rgb(" + d.col[0] + "," + d.col[1] + "," + d.col[2] + ")";
+        sctx.beginPath(); sctx.arc(d.x, d.y, d.r, 0, 6.2832); sctx.fill();
+      }
+      sctx.globalAlpha = 1;
+    }
+
+    /* ---------- جرقه‌ها و کانفتی ---------- */
+    var parts = [];
+    var glyphs = ["✦", "♥", "✧", "★", "♥"];
+    var fcols = ["#ff5fa2", "#ff8cc0", "#ffb84d", "#b98aff", "#ff7a9a", "#ffa97f"];
+
+    function spark(x, y) {
+      for (var i = 0; i < 2; i++) {
+        parts.push({ t: "g", x: x + rand(-4, 4), y: y + rand(-4, 4), vx: rand(-.04, .04), vy: rand(-.07, .02), g: .00006,
+                     life: 0, ttl: rand(650, 1100), size: rand(9, 17), ch: glyphs[(Math.random() * glyphs.length) | 0],
+                     col: fcols[(Math.random() * fcols.length) | 0], rot: 0, vr: 0 });
+      }
+      if (parts.length > 400) parts.splice(0, parts.length - 400);
+    }
+
+    function burst(x, y) {
+      for (var i = 0; i < 90; i++) {
+        var rect = Math.random() < .45;
+        parts.push({ t: rect ? "r" : "g", x: x, y: y, vx: rand(-.45, .45), vy: rand(-.85, -.15), g: .0011,
+                     life: 0, ttl: rand(1500, 2600), size: rand(8, 17), ch: glyphs[(Math.random() * glyphs.length) | 0],
+                     col: fcols[(Math.random() * fcols.length) | 0], rot: rand(0, 6.28), vr: rand(-.012, .012) });
+      }
+    }
+
+    function drawFx(dt) {
+      fctx.clearRect(0, 0, W, H);
+      for (var i = parts.length - 1; i >= 0; i--) {
+        var p = parts[i]; p.life += dt;
+        if (p.life >= p.ttl) { parts.splice(i, 1); continue; }
+        p.vy += p.g * dt; p.x += p.vx * dt; p.y += p.vy * dt; p.rot += p.vr * dt;
+        var r = p.life / p.ttl;
+        fctx.globalAlpha = 1 - r * r; fctx.fillStyle = p.col;
+        fctx.save(); fctx.translate(p.x, p.y); fctx.rotate(p.rot);
+        if (p.t === "r") { fctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2); }
+        else { fctx.font = p.size + "px sans-serif"; fctx.textAlign = "center"; fctx.textBaseline = "middle"; fctx.fillText(p.ch, 0, 0); }
+        fctx.restore();
+      }
+      fctx.globalAlpha = 1;
+    }
+
+    var last = performance.now();
+    function frame(t) {
+      var dt = Math.min(40, t - last); last = t;
+      drawSky(t, dt); drawFx(dt);
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+
+    /* ---------- چشم‌ها ---------- */
+    var eyesEl = $("#eyes"), pupils = Array.prototype.slice.call(document.querySelectorAll(".pupil"));
+    var lastMove = 0;
+    function look(x, y) {
+      if (eyesEl.classList.contains("happy")) return;
+      pupils.forEach(function (p) {
+        var e = p.parentElement.getBoundingClientRect();
+        var dx = x - (e.left + e.width / 2), dy = y - (e.top + e.height / 2);
+        var d = Math.hypot(dx, dy) || 1, m = Math.min(11, d / 12);
+        p.style.transform = "translate(" + (dx / d * m) + "px," + (dy / d * m) + "px)";
+      });
+    }
+    setInterval(function () {
+      if (!reduce && Date.now() - lastMove > 3000) look(rand(0, W), rand(0, H));
+    }, 2200);
+
+    /* ---------- تیلت کارت ---------- */
+    var card = $("#card");
+    function tilt(x, y) {
+      if (reduce || !card.offsetWidth) return;
+      var r = card.getBoundingClientRect();
+      var nx = Math.max(-1, Math.min(1, (x - (r.left + r.width / 2)) / (W / 2)));
+      var ny = Math.max(-1, Math.min(1, (y - (r.top + r.height / 2)) / (H / 2)));
+      card.style.setProperty("--ry", (nx * 9) + "deg");
+      card.style.setProperty("--rx", (-ny * 7) + "deg");
+      card.style.setProperty("--mx", ((x - r.left) / r.width * 100) + "%");
+      card.style.setProperty("--my", ((y - r.top) / r.height * 100) + "%");
+    }
+    function untilt() {
+      card.style.setProperty("--rx", "0deg"); card.style.setProperty("--ry", "0deg");
+      card.style.setProperty("--mx", "50%"); card.style.setProperty("--my", "30%");
+    }
+
+    /* ---------- دکمه شوخی ---------- */
+    var btn = $("#prankButton");
+    btn.addEventListener("click", function () {
+      btn.textContent = "دیگه کار از کار گذشته، آیدیتو دارم خنگ 😂";
+      btn.disabled = true;
+      eyesEl.classList.add("happy");
+      if (!reduce) { var r = btn.getBoundingClientRect(); burst(r.left + r.width / 2, r.top + r.height / 2); }
+    });
+
+    /* ---------- قلقلک چشم‌ها: سه بار پشت هم کلیک ---------- */
+    var bubble = $("#bubble"), tk = 0, tkT = 0, bubbleTimer = 0;
+    eyesEl.addEventListener("click", function () {
+      var now = Date.now();
+      tk = (now - tkT < 1600) ? tk + 1 : 1; tkT = now;
+      if (tk < 3) return;
+      tk = 0;
+      eyesEl.classList.remove("tickled"); void eyesEl.offsetWidth; eyesEl.classList.add("tickled");
+      bubble.textContent = "بس کن قلقلکم میاد 😆";
+      bubble.classList.add("show");
+      if (!reduce) {
+        var r = eyesEl.getBoundingClientRect();
+        for (var i = 0; i < 8; i++) spark(r.left + rand(0, r.width), r.top + rand(0, r.height));
+      }
+      clearTimeout(bubbleTimer);
+      bubbleTimer = setTimeout(function () { bubble.classList.remove("show"); eyesEl.classList.remove("tickled"); }, 2300);
+    });
+
+    /* ---------- اعلان دوستی شوخی ---------- */
+    var toast = $("#toast"), toastShown = false;
+    function showToast() {
+      if (toastShown) return;
+      toastShown = true; toast.classList.add("show");
+    }
+    toast.addEventListener("click", function (e) {
+      if (!e.target.closest("button")) return;
+      var r = toast.getBoundingClientRect();
+      toast.querySelector(".t-txt").innerHTML = "<b>شوخی بود، فضول 😜</b><span>کسی درخواست نداده، آروم باش 😂</span>";
+      toast.querySelector(".t-btns").style.display = "none";
+      if (!reduce) burst(r.left + r.width / 2, r.top + r.height / 2);
+      setTimeout(function () { toast.classList.remove("show"); }, 2800);
+    });
+
+    /* ---------- رویداد اشاره‌گر ---------- */
+    var lx = -99, ly = -99;
+    window.addEventListener("pointermove", function (e) {
+      var x = e.clientX, y = e.clientY;
+      lastMove = Date.now();
+      look(x, y); tilt(x, y);
+      if (!reduce && Math.hypot(x - lx, y - ly) > 14) { spark(x, y); lx = x; ly = y; }
+    }, { passive: true });
+    document.addEventListener("pointerleave", untilt);
+    window.addEventListener("blur", untilt);
+
+    /* ---------- شروع صفحه‌ی اصلی بعد از ورود ---------- */
+    function startShow(userName) {
+      // تایپ زیرعنوان
+      var subEl = $("#sub"), subText = subEl.textContent;
+      if (!reduce) {
+        subEl.textContent = "";
+        var chars = Array.from(subText), ci = 0;
+        setTimeout(function tick() {
+          ci++; subEl.textContent = chars.slice(0, ci).join("");
+          if (ci < chars.length) setTimeout(tick, 65);
+        }, 1200);
+      }
+
+      // پیام اعلان دوستی با اسم بازدیدکننده
+      $("#toastMsg").textContent = "آرزو می‌خواد باهات دوست بشه " + userName + " جان 🎀";
+
+      // ارسال آیدی (فیک)
+      var notice = $("#notice"), nText = $("#nText"), nPct = $("#nPct"), fill = $("#barFill");
+      var doneText = "آیدی دیسکوردت برام ارسال شد☺️";
+      nText.textContent = doneText;
+      function setPct(p) { nPct.textContent = fa(p) + "٪"; fill.style.width = p + "%"; }
+      function done() {
+        notice.classList.add("done");
+        nText.textContent = doneText;
+        setTimeout(showToast, 3500);
+      }
+      if (reduce) setTimeout(showToast, 4000);
+      if (!reduce) {
+        notice.classList.remove("done");
+        nText.textContent = "در حال ارسال آیدی دیسکوردت..."; setPct(0);
+        var steps = [[1700, 8], [550, 23], [700, 23], [550, 51], [750, 74], [500, 74], [650, 92], [450, 100]], si = 0;
+        (function run() {
+          if (si >= steps.length) { setTimeout(done, 550); return; }
+          var s = steps[si++];
+          setTimeout(function () { setPct(s[1]); run(); }, s[0]);
+        })();
+      }
+    }
+
+    /* ---------- ورود: اسم، سوال‌ها، جواب‌های شوخی ---------- */
+    var gate = $("#gate"), appEl = $("#app");
+    var nameInput = $("#nameInput"), nameBtn = $("#nameBtn");
+    var optsEl = $("#opts"), qBtn = $("#qBtn"), answersEl = $("#answers"), goBtn = $("#goBtn");
+    var visitorName = "";
+    var JOKES = {
+      age:   ["سنم چنده؟", "سنم از 1 تا 70 😆"],
+      home:  ["محل زندگیم کجاست؟", "یه جایی روی کره‌ی زمین 🌍"],
+      study: ["رشتم چیه؟", "این یدونرو میگم حالا (کامپیوتر)👩🏻‍💻"],
+      color: ["رنگ مورد علاقم چیه؟", "رنگ مورد علاقمو میخوای چیکار آخه🤦🏻‍♀️🤣"],
+      phone: ["شماره گوشیم چنده؟", "فکر کردی الان شمارمو میزارم راحت برداری زنگ بزنی؟خنگی دیگه😂"],
+      nosy:  ["هیچی، فقط اومدی فضولی کنی", "میدونستم! از اول فضول بودی 😂"]
+    };
+
+    function showStep(id) {
+      Array.prototype.forEach.call(document.querySelectorAll(".step"), function (s) {
+        s.classList.toggle("active", s.id === id);
+      });
+    }
+
+    nameInput.addEventListener("input", function () {
+      nameBtn.disabled = nameInput.value.trim().length < 1;
+    });
+
+    // بدون <form> تا توی پیش‌نمایش‌های محدود هم کار کنه
+    function enterName() {
+      var v = nameInput.value.trim().slice(0, 20);
+      if (!v) return;
+      visitorName = v;
+      $("#qTitle").textContent = "سلام " + v + " 👋";
+      showStep("stepQ");
+    }
+    nameBtn.addEventListener("click", enterName);
+    nameInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" && !e.isComposing) { e.preventDefault(); enterName(); }
+    });
+
+    optsEl.addEventListener("change", function () {
+      qBtn.disabled = !optsEl.querySelector("input:checked");
+    });
+
+    qBtn.addEventListener("click", function () {
+      var checked = Array.prototype.slice.call(optsEl.querySelectorAll("input:checked"));
+      answersEl.textContent = "";
+      checked.forEach(function (inp, i) {
+        var j = JOKES[inp.value];
+        if (!j) return;
+        var row = document.createElement("div");
+        row.className = "ans";
+        row.style.setProperty("--d", (0.15 + i * 0.5) + "s");
+        var q = document.createElement("small"); q.textContent = j[0];
+        var a = document.createElement("span"); a.textContent = j[1];
+        row.appendChild(q); row.appendChild(a); answersEl.appendChild(row);
+      });
+      var end = 0.15 + checked.length * 0.5;
+      goBtn.style.setProperty("--d", (end + 0.2) + "s");
+      showStep("stepA");
+    });
+
+    goBtn.addEventListener("click", function () {
+      gate.classList.add("leaving");
+      setTimeout(function () {
+        gate.style.display = "none";
+        appEl.style.display = "grid";
+        startShow(visitorName || "تو");
+      }, reduce ? 0 : 420);
+    });
+
+    /* ---------- شمارنده بازدیدکننده ---------- */
+    var KEY = "visitors", NS = "discord-fozool-prank-v2", BASE = 30;
+    var out = $("#visitorCount");
+    var seen = false;
+    try { seen = localStorage.getItem("visited_" + NS) === "1"; } catch (e) {}
+
+    var services = [
+      { url: "https://api.counterapi.dev/v1/" + NS + "/" + KEY + (seen ? "" : "/up"),
+        pick: function (d) { return d.count !== undefined ? d.count : d.value; } },
+      { url: "https://abacus.jasoncameron.dev/" + (seen ? "get" : "hit") + "/" + NS + "/" + KEY,
+        pick: function (d) { return d.value; } }
+    ];
+
+    function countUp(n) {
+      if (reduce || !isFinite(n) || n < 2) { out.textContent = fa(n); return; }
+      var t0 = performance.now(), dur = 1500;
+      (function step(t) {
+        var k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+        out.textContent = fa(Math.round(n * e));
+        if (k < 1) requestAnimationFrame(step);
+      })(t0);
+    }
+
+    function tryService(i) {
+      if (i >= services.length) { out.textContent = "نامشخص"; return; }
+      var ctl = new AbortController();
+      var t = setTimeout(function () { ctl.abort(); }, 10000);
+      function call() {
+        return fetch(services[i].url, { signal: ctl.signal }).then(function (r) { if (!r.ok) throw 0; return r.json(); });
+      }
+      // بازدیدکننده جدید یک بار شمرده میشه. برای مرورگرهای تکراری فقط خونده میشه
+      var req = call();
+      req.then(function (d) {
+        clearTimeout(t);
+        var n = services[i].pick(d);
+        if (n === undefined) throw 0;
+        countUp(Number(n) + BASE);
+        try { localStorage.setItem("visited_" + NS, "1"); } catch (e) {}
+      }).catch(function () { clearTimeout(t); tryService(i + 1); });
+    }
+    tryService(0);
+  })();
+  </script>
+</body>
+</html>
