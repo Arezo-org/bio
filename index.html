@@ -3,138 +3,331 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fff5fb">
-  <title>دنبال چی می‌گشتی؟ 🧐</title>
+  <meta name="theme-color" content="#fff0f7">
+  <title>دنبال چی می‌گشتی؟</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root { color-scheme: light; }
+    /* بی‌کودک: فایل رو کنار index.html بذار با اسم BKoodak.woff2 (یا ttf) تا خودکار لود بشه */
+    @font-face {
+      font-family: "BKoodak";
+      src: local("B Koodak"), local("BKoodak"),
+           url("BKoodak.woff2") format("woff2"),
+           url("BKoodak.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    :root {
+      --ink: #4d1d3a;
+      --muted: #9b6a85;
+      --pink: #ff5fa2;
+      --pink-2: #ff8cc0;
+      --blush: #ffeaf3;
+      --line: #ffd0e3;
+      --title: "Lalezar", "Vazirmatn", Tahoma, sans-serif;
+      --body: "BKoodak", "B Koodak", "Vazirmatn", Tahoma, sans-serif;
+    }
     * { box-sizing: border-box; }
+    html, body { height: 100%; }
     body {
       margin: 0; min-height: 100vh; display: grid; place-items: center;
-      padding: 24px; font-family: Tahoma, Arial, sans-serif;
-      color: #6b294d; background:
-        radial-gradient(ellipse at 20% 15%, rgba(255,182,213,.55), transparent 45%),
-        radial-gradient(ellipse at 85% 80%, rgba(255,214,231,.65), transparent 42%),
-        #fffafd;
+      padding: 32px 24px 76px; font-family: var(--body); color: var(--ink); overflow-x: hidden;
+      background: linear-gradient(160deg, #ffffff 0%, #fff1f8 48%, #ffdbeb 100%) fixed;
     }
-    .card {
-      width: min(100%, 520px); text-align: center; padding: clamp(24px, 6vw, 42px);
-      border: 1px solid #f2b8d2; border-radius: 28px;
-      background: rgba(255,255,255,.95); box-shadow: 0 24px 90px rgba(183,94,137,.16); position: relative;
-      animation: appear .7s ease both;
-    }
-    .emoji {
-      display: grid; place-items: center; width: 76px; height: 76px; margin: 0 auto 22px;
-      border-radius: 24px; background: #ffe3ef; font-size: 38px;
-      box-shadow: 0 0 35px rgba(236,129,177,.18);
-    }
-    h1 { font-size: clamp(27px, 6vw, 38px); line-height: 1.4; margin: 0 0 18px; }
-    .headline { color: #e65a9a; margin: 0 0 22px; font-size: clamp(21px, 4.5vw, 27px); font-weight: 800; }
-    .copy { color: #75445d; line-height: 2; font-size: 17px; margin: 0 0 26px; }
-    .notice {
-      padding: 20px 16px; border-radius: 20px; border: 1px solid #f0a9ca;
-      background: linear-gradient(145deg, #ffe4f0, #fff2f8); color: #8a315b;
-      animation: glow 2.8s ease-in-out infinite alternate;
-    }
-    .notice .send { font-size: 30px; margin-bottom: 10px; }
-    .notice p { font-size: clamp(17px, 4vw, 21px); line-height: 1.8; font-weight: 700; margin: 0; }
-    .foot { color: #d95b96; font-size: 12px; margin: 24px 0 0; }
-    .stars { position: absolute; color: #f4c430; font-size: 23px; pointer-events: none; text-shadow: 0 1px 2px rgba(173,120,0,.12); }
-    .star-one { top: 20px; left: 22px; } .star-two { top: 92px; right: 20px; font-size: 17px; }
-    .star-three { bottom: 95px; left: 25px; font-size: 19px; } .star-four { bottom: 22px; right: 36px; font-size: 15px; }
-    .prank-button { margin-top: 22px; width: 100%; padding: 15px 18px; border: 0; border-radius: 16px; background: linear-gradient(135deg, #f17db1, #e65a9a); color: white; font: 700 16px Tahoma, Arial, sans-serif; cursor: pointer; box-shadow: 0 8px 20px rgba(230,90,154,.22); transition: transform .15s ease, filter .15s ease; }
-    .prank-button:hover { filter: brightness(1.04); transform: translateY(-1px); }
-    .prank-button:focus-visible { outline: 3px solid #f4c430; outline-offset: 3px; }
-    .discord-card {
-      width: min(100%, 520px); margin-top: 18px; padding: 22px 20px; text-align: center;
-      border: 1px solid #f2b8d2; border-radius: 24px;
-      background: rgba(255,255,255,.95); box-shadow: 0 16px 45px rgba(183,94,137,.12);
-    }
-    .discord-card p { color: #8a315b; font-size: clamp(17px, 4vw, 21px); font-weight: 700; line-height: 1.8; margin: 0; }
-    .discord-button {
-      display: inline-block; margin-top: 16px; padding: 13px 24px; border-radius: 15px;
-      background: linear-gradient(135deg, #f17db1, #e65a9a); color: #fff; text-decoration: none;
-      font: 700 16px Tahoma, Arial, sans-serif; box-shadow: 0 8px 20px rgba(230,90,154,.22);
-      transition: transform .15s ease, filter .15s ease;
-    }
-    .discord-button:hover { filter: brightness(1.04); transform: translateY(-1px); }
-    .discord-button:focus-visible { outline: 3px solid #f4c430; outline-offset: 3px; }
+
+    /* آسمان و افکت‌ها */
+    #sky, #fx { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    #sky { z-index: 0; }
+    #fx { z-index: 50; }
+
+    .blobs { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+    .blobs i { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .65; }
+    .blobs i:nth-child(1) { width: 400px; height: 400px; background: #ffc2dc; top: -140px; right: -120px; animation: drift1 16s ease-in-out infinite alternate; }
+    .blobs i:nth-child(2) { width: 360px; height: 360px; background: #ffd9ec; bottom: -130px; left: -110px; animation: drift2 19s ease-in-out infinite alternate; }
+    .blobs i:nth-child(3) { width: 280px; height: 280px; background: #ffe6d2; top: 42%; left: 32%; opacity: .5; animation: drift3 23s ease-in-out infinite alternate; }
+    @keyframes drift1 { to { transform: translate(-140px, 160px) scale(1.2); } }
+    @keyframes drift2 { to { transform: translate(180px, -120px) scale(1.15); } }
+    @keyframes drift3 { to { transform: translate(-160px, -90px) scale(1.3); } }
+
+    /* شمارنده بازدیدکننده: همیشه ثابت گوشه صفحه */
     .visitor-badge {
-      position: fixed; bottom: 14px; left: 14px; z-index: 10; display: none;
-      padding: 8px 14px; border: 1px solid #f2b8d2; border-radius: 999px;
-      background: rgba(255,255,255,.92); color: #8a315b; font-size: 13px; font-weight: 700;
-      box-shadow: 0 6px 20px rgba(183,94,137,.14);
+      position: fixed; top: 14px; left: 14px; z-index: 60;
+      display: flex; align-items: center; gap: 8px; padding: 9px 16px;
+      background: #fff; border: 1.5px solid var(--line); border-radius: 999px;
+      font-size: 16px; color: var(--ink); box-shadow: 0 10px 26px -10px rgba(255,95,162,.55);
     }
-    .visitor-badge.show { display: block; }
-    @keyframes appear { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
-    @keyframes glow { from { box-shadow: 0 0 0 rgba(236,129,177,0); } to { box-shadow: 0 0 28px rgba(236,129,177,.18); } }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
+    .visitor-badge b { font-weight: 400; color: var(--pink); min-width: 2ch; text-align: center; }
+
+    main { position: relative; z-index: 2; width: min(100%, 460px); display: grid; gap: 16px; }
+    .stage { perspective: 1100px; }
+
+    .reveal { opacity: 0; transform: translateY(20px); animation: rise .85s var(--d, 0s) cubic-bezier(.2,.8,.2,1) forwards; }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+
+    /* کارت اصلی با تیلت سه‌بعدی */
+    .card {
+      --rx: 0deg; --ry: 0deg; --mx: 50%; --my: 30%;
+      position: relative; text-align: center; padding: 38px 28px 30px; overflow: hidden;
+      background: #fff; border: 1.5px solid var(--line); border-radius: 34px;
+      box-shadow: 0 32px 70px -28px rgba(255,95,162,.5);
+      transform: rotateX(var(--rx)) rotateY(var(--ry));
+      transition: transform .18s ease-out;
+    }
+    .card::after {
+      content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+      background: radial-gradient(circle at var(--mx) var(--my), rgba(255,95,162,.1), transparent 46%);
+    }
+
+    /* چشم‌های فضول */
+    .eyes-wrap { position: relative; margin-bottom: 20px; }
+    .eyes { display: flex; justify-content: center; gap: 12px; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+    .eyes.tickled { animation: tickle .9s ease-in-out; }
+    @keyframes tickle {
+      0% { transform: scale(1) rotate(0); }
+      15% { transform: scale(1.4) rotate(-6deg); } 30% { transform: scale(1.4) rotate(6deg); }
+      45% { transform: scale(1.4) rotate(-5deg); } 60% { transform: scale(1.4) rotate(5deg); }
+      100% { transform: scale(1) rotate(0); }
+    }
+    .bubble {
+      position: absolute; left: 50%; top: calc(100% + 10px); z-index: 3; white-space: nowrap; pointer-events: none;
+      padding: 8px 16px; border-radius: 999px; background: var(--pink); color: #fff; font-size: 16px;
+      box-shadow: 0 10px 22px -8px rgba(255,79,154,.8);
+      opacity: 0; transform: translate(-50%, 6px) scale(.85); transition: opacity .25s ease, transform .35s cubic-bezier(.2,1.4,.4,1);
+    }
+    .bubble::before {
+      content: ""; position: absolute; top: -5px; left: 50%; width: 12px; height: 12px; background: var(--pink);
+      transform: translateX(-50%) rotate(45deg); border-radius: 3px;
+    }
+    .bubble.show { opacity: 1; transform: translate(-50%, 0) scale(1); }
+    .eye {
+      width: 46px; height: 46px; border-radius: 50%; background: #fff; display: grid; place-items: center;
+      border: 2.5px solid #ffc0da; box-shadow: 0 8px 22px -6px rgba(255,95,162,.5); animation: blink 5.5s infinite;
+    }
+    .pupil {
+      width: 21px; height: 21px; border-radius: 50%; background: var(--ink); position: relative;
+      transition: transform .09s linear;
+    }
+    .pupil::after { content: ""; position: absolute; width: 7px; height: 7px; background: #fff; border-radius: 50%; top: 4px; right: 4px; }
+    @keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.08); } }
+    .eyes.happy .pupil { background: none; width: auto; height: auto; color: var(--pink); font-size: 26px; line-height: 1; transform: none !important; }
+    .eyes.happy .pupil::before { content: "♥"; }
+    .eyes.happy .pupil::after { display: none; }
+
+    h1 { font-family: var(--title); font-weight: 400; font-size: clamp(30px, 8.5vw, 42px); line-height: 1.4; margin: 0 0 4px; }
+    .w {
+      display: inline-block; opacity: 0; transform: translateY(26px) scale(.88);
+      background: linear-gradient(90deg, #ff5fa2, #ff9ac8, #ffa97f, #ff5fa2); background-size: 250% 100%;
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+      animation: pop .75s calc(.45s + var(--i) * .13s) cubic-bezier(.2,1.4,.4,1) forwards, shimmer 5s linear infinite;
+    }
+    .w2 { display: inline-block; opacity: 0; transform: translateY(26px) scale(.88); animation: pop .75s calc(.45s + var(--i) * .13s) cubic-bezier(.2,1.4,.4,1) forwards; }
+    @keyframes pop { to { opacity: 1; transform: none; } }
+    @keyframes shimmer { to { background-position: -250% 0; } }
+
+    .sub { font-size: 20px; color: var(--pink); margin: 0 0 14px; min-height: 1.8em; }
+    .copy { font-size: 17px; line-height: 2; color: var(--muted); margin: 0 0 24px; }
+
+    /* اعلان ارسال آیدی */
+    .notice { padding: 14px 18px 16px; border-radius: 20px; background: var(--blush); border: 1.5px solid var(--line); }
+    .n-row { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 18px; color: #a23a6d; }
+    .n-row em { font-style: normal; color: var(--pink); min-width: 3.2ch; }
+    .bar { height: 7px; margin-top: 12px; border-radius: 99px; background: #fff; overflow: hidden; max-height: 7px; transition: opacity .5s, max-height .5s, margin .5s; }
+    .bar i { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--pink), #ffa97f); transition: width .45s ease-out; }
+    .notice.done .bar { opacity: 0; max-height: 0; margin-top: 0; }
+    .notice.done .n-row em { display: none; }
+    .notice.done { animation: pulse 1.2s ease-out 1; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255,95,162,.45); } 100% { box-shadow: 0 0 0 22px rgba(255,95,162,0); } }
+
+    /* دکمه شوخی */
+    .prank {
+      margin-top: 16px; width: 100%; padding: 14px 18px; border: 0; border-radius: 16px; cursor: pointer;
+      font-family: var(--body); font-size: 17px; color: #fff;
+      background: linear-gradient(135deg, #ff7ab8, #ff4f9a);
+      box-shadow: 0 14px 26px -10px rgba(255,79,154,.75);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .prank:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 18px 30px -10px rgba(255,79,154,.85); }
+    .prank:disabled { cursor: default; background: var(--blush); color: #a23a6d; box-shadow: inset 0 0 0 1.5px var(--pink); }
+
+    /* دعوت به دیسکورد */
+    .invite {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 16px 20px; border-radius: 26px;
+      background: #fff; border: 1.5px solid var(--line); box-shadow: 0 20px 44px -26px rgba(255,95,162,.45);
+    }
+    .invite p { margin: 0; font-size: 16px; line-height: 1.9; color: var(--muted); }
+    .link {
+      position: relative; overflow: hidden; flex: none; padding: 12px 22px; border-radius: 15px; color: #fff; text-decoration: none;
+      font-family: var(--body); font-size: 17px; background: linear-gradient(135deg, #ff7ab8, #ff4f9a);
+      box-shadow: 0 12px 26px -8px rgba(255,79,154,.7); transition: transform .18s, box-shadow .18s;
+    }
+    .link::before {
+      content: ""; position: absolute; top: 0; bottom: 0; width: 40%; left: -60%;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,.6), transparent); transform: skewX(-18deg);
+      animation: sweep 3.4s ease-in-out infinite;
+    }
+    @keyframes sweep { 0% { left: -60%; } 45%, 100% { left: 140%; } }
+    .link:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 16px 30px -8px rgba(255,79,154,.85); }
+
+    button:focus-visible, .link:focus-visible { outline: 3px solid #ffb703; outline-offset: 3px; }
+
+    /* ورود: اسم، سوال‌ها، جواب‌های شوخی */
+    #app { display: none; }
+    #gate { transition: opacity .4s ease, transform .4s ease; }
+    #gate.leaving { opacity: 0; transform: translateY(-14px); pointer-events: none; }
+    .g-card { text-align: center; }
+    .step { display: none; }
+    .step.active { display: block; animation: stepIn .55s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes stepIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    .g-ico {
+      width: 68px; height: 68px; margin: 0 auto 18px; display: grid; place-items: center; border-radius: 50%;
+      background: var(--blush); font-size: 32px; animation: float 3.4s ease-in-out infinite;
+    }
+    @keyframes float { 50% { transform: translateY(-5px); } }
+    .g-title { font-family: var(--title); font-weight: 400; font-size: clamp(30px, 8.5vw, 40px); line-height: 1.4; margin: 0 0 6px; color: var(--pink); }
+    .g-sub { font-size: 17px; line-height: 1.9; color: var(--muted); margin: 0 0 22px; }
+    .g-note { font-size: 14px; color: var(--muted); margin: 14px 0 0; }
+    .name-input {
+      width: 100%; padding: 14px 16px; font-family: var(--body); font-size: 19px; color: var(--ink); text-align: center;
+      background: #fff; border: 1.5px solid var(--line); border-radius: 16px; outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .name-input::placeholder { color: #d7a9c0; }
+    .name-input:focus { border-color: var(--pink); box-shadow: 0 0 0 5px rgba(255,95,162,.15); }
+    .g-btn {
+      margin-top: 16px; width: 100%; padding: 14px 18px; border: 0; border-radius: 16px; cursor: pointer;
+      font-family: var(--body); font-size: 17px; color: #fff; background: linear-gradient(135deg, #ff7ab8, #ff4f9a);
+      box-shadow: 0 14px 26px -10px rgba(255,79,154,.75); transition: transform .18s ease, box-shadow .18s ease, opacity .2s;
+    }
+    .g-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 18px 30px -10px rgba(255,79,154,.85); }
+    .g-btn:disabled { opacity: .4; cursor: not-allowed; box-shadow: none; }
+
+    .opts { display: grid; gap: 10px; margin: 0 0 6px; text-align: right; }
+    .opt {
+      position: relative; display: flex; align-items: center; gap: 12px; padding: 13px 16px; font-size: 18px; cursor: pointer;
+      background: #fff; border: 1.5px solid var(--line); border-radius: 16px;
+      transition: border-color .2s, background .2s, transform .15s;
+    }
+    .opt:hover { border-color: var(--pink-2); transform: translateY(-1px); }
+    .opt input { position: absolute; opacity: 0; pointer-events: none; }
+    .box {
+      flex: none; width: 24px; height: 24px; display: grid; place-items: center; border-radius: 8px; border: 2px solid #ffb8d4;
+      transition: background .2s, border-color .2s;
+    }
+    .box::after { content: "✓"; color: #fff; font-size: 15px; line-height: 1; transform: scale(0); transition: transform .25s cubic-bezier(.2,1.6,.4,1); }
+    .opt input:checked + .box { background: var(--pink); border-color: var(--pink); }
+    .opt input:checked + .box::after { transform: scale(1); }
+    .opt:has(input:checked) { background: var(--blush); border-color: var(--pink); }
+    .opt input:focus-visible + .box { outline: 3px solid #ffb703; outline-offset: 2px; }
+
+    .answers { display: grid; gap: 10px; text-align: right; margin: 0 0 14px; }
+    .ans { padding: 12px 16px; border-radius: 16px; background: var(--blush); opacity: 0; transform: translateY(12px); animation: ansIn .55s var(--d, 0s) cubic-bezier(.2,.8,.2,1) forwards; }
+    .ans small { display: block; font-size: 14px; color: var(--muted); margin-bottom: 2px; }
+    .ans span { font-size: 18px; color: var(--ink); line-height: 1.8; }
+    .g-next { opacity: 0; animation: ansIn .55s var(--d, 0s) forwards; }
+    @keyframes ansIn { to { opacity: 1; transform: none; } }
+
+    /* اعلان دوستی (شوخی) */
+    .toast {
+      position: fixed; top: 66px; left: 50%; z-index: 70; width: min(92vw, 380px);
+      display: flex; align-items: center; gap: 12px; padding: 12px 14px;
+      background: #fff; border: 1.5px solid var(--line); border-radius: 20px;
+      box-shadow: 0 22px 50px -18px rgba(255,95,162,.65);
+      opacity: 0; transform: translate(-50%, -30px) scale(.96); pointer-events: none;
+      transition: opacity .35s ease, transform .5s cubic-bezier(.2,1.3,.4,1);
+    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0) scale(1); pointer-events: auto; animation: ring .6s .55s ease-in-out 2; }
+    @keyframes ring {
+      0%, 100% { transform: translate(-50%, 0) rotate(0); }
+      25% { transform: translate(-50%, 0) rotate(-2deg); } 75% { transform: translate(-50%, 0) rotate(2deg); }
+    }
+    .t-ico { flex: none; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: var(--blush); font-size: 22px; }
+    .t-txt { flex: 1; min-width: 0; display: grid; gap: 2px; text-align: right; }
+    .t-txt b { font-weight: 400; font-size: 17px; color: var(--ink); }
+    .t-txt span { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .t-btns { flex: none; display: flex; gap: 6px; }
+    .t-btns button { font-family: var(--body); font-size: 15px; cursor: pointer; border: 0; border-radius: 12px; padding: 8px 14px; transition: transform .15s ease; }
+    .t-btns button:hover { transform: translateY(-1px); }
+    .t-yes { background: linear-gradient(135deg, #ff7ab8, #ff4f9a); color: #fff; }
+    .t-no { background: var(--blush); color: var(--ink); }
+
+    .foot { text-align: center; padding-top: 2px; }
+    .foot .name { font-family: var(--title); font-size: 19px; color: var(--ink); opacity: .7; direction: ltr; letter-spacing: .5px; }
+
+    @media (max-width: 420px) { .invite { flex-direction: column; text-align: center; } .link { width: 100%; text-align: center; } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal, .w, .w2 { opacity: 1 !important; transform: none !important; }
+      .w { -webkit-text-fill-color: var(--pink); color: var(--pink); background: none; }
+      .ans, .g-next { opacity: 1 !important; transform: none !important; }
+    }
   </style>
 </head>
 <body>
-  <main class="card">
-    <span class="stars star-one" aria-hidden="true">✦</span>
-    <span class="stars star-two" aria-hidden="true">★</span>
-    <span class="stars star-three" aria-hidden="true">✧</span>
-    <span class="stars star-four" aria-hidden="true">✦</span>
-    <div class="emoji" aria-hidden="true">👀</div>
-    <h1>دنبال چی میگردی فضول؟</h1>
-    <p class="headline">کنجکاوی کار دستت داد! 😂</p>
-    <p class="copy">فکر کردی می‌تونی یواشکی پروفایلم رو چک کنی؟ 👀</p>
-    <section class="notice" aria-live="polite">
-      <div class="send" aria-hidden="true">📩</div>
-      <p>آیدی دیسکوردت برام ارسال شد ☺️</p>
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="blobs" aria-hidden="true"><i></i><i></i><i></i></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <div class="visitor-badge" id="visitorBadge" aria-live="polite">
+    <span aria-hidden="true">👥</span><span>بازدیدکننده:</span><b id="visitorCount">...</b>
+  </div>
+
+  <div class="toast" id="toast" role="alert" aria-live="assertive">
+    <div class="t-ico" aria-hidden="true">🔔</div>
+    <div class="t-txt"><b>درخواست دوستی جدید</b><span id="toastMsg">آرزو می‌خواد باهات دوست بشه 🎀</span></div>
+    <div class="t-btns"><button class="t-yes" type="button">قبول</button><button class="t-no" type="button">رد</button></div>
+  </div>
+
+  <main id="gate">
+    <section class="card g-card">
+      <div class="step active" id="stepName">
+        <div class="g-ico" aria-hidden="true">🕵️</div>
+        <h1 class="g-title">اسمت چیه؟</h1>
+        <p class="g-sub">قبل از ورود باید خودتو معرفی کنی 😎</p>
+        <div>
+          <input class="name-input" id="nameInput" type="text" maxlength="20" placeholder="اسمت رو بنویس..." aria-label="اسمت" autocomplete="off" enterkeyhint="go">
+          <button class="g-btn" id="nameBtn" type="button" disabled>بریم تو 🚪</button>
+        </div>
+        <p class="g-note">اسمت فقط همین‌جا می‌مونه و جایی ذخیره نمی‌شه 💗</p>
+      </div>
+
+      <div class="step" id="stepQ">
+        <div class="g-ico" aria-hidden="true">🤔</div>
+        <h2 class="g-title" id="qTitle">سلام 👋</h2>
+        <p class="g-sub">چی می‌خوای درباره‌م بدونی؟<br>هرچندتا خواستی تیک بزن</p>
+        <div class="opts" id="opts">
+          <label class="opt"><input type="checkbox" value="age"><span class="box" aria-hidden="true"></span><span>سنم چنده؟ 🎂</span></label>
+          <label class="opt"><input type="checkbox" value="home"><span class="box" aria-hidden="true"></span><span>محل زندگیم کجاست؟ 🏠</span></label>
+          <label class="opt"><input type="checkbox" value="study"><span class="box" aria-hidden="true"></span><span>رشتم چیه؟ 📚</span></label>
+          <label class="opt"><input type="checkbox" value="color"><span class="box" aria-hidden="true"></span><span>رنگ مورد علاقم چیه؟ 💗</span></label>
+          <label class="opt"><input type="checkbox" value="phone"><span class="box" aria-hidden="true"></span><span>شماره گوشیم چنده؟ 📱</span></label>
+          <label class="opt"><input type="checkbox" value="nosy"><span class="box" aria-hidden="true"></span><span>هیچی، فقط اومدم فضولی کنم 👀</span></label>
+        </div>
+        <button class="g-btn" id="qBtn" type="button" disabled>ثبت جواب‌ها ✨</button>
+      </div>
+
+      <div class="step" id="stepA">
+        <div class="g-ico" aria-hidden="true">😏</div>
+        <h2 class="g-title">جواب‌ها اینان:</h2>
+        <div class="answers" id="answers"></div>
+        <button class="g-btn g-next" id="goBtn" type="button">اگه هنوز فضولیت بر طرف نشده کلیک کن خنگ 🎀</button>
+      </div>
     </section>
-    <button class="prank-button" id="prankButton" type="button">اگه میخوای آیدیت ارسال نشه کلیک کن</button>
   </main>
-  <section class="discord-card" aria-label="دعوت به دیسکورد">
-    <p>😆 حالا که فضولی کردی میتونی توی چنل دیسکوردم جوین بشی</p>
-    <a class="discord-button" href="https://discord.gg/w9SVK4Akyt" target="_blank" rel="noopener noreferrer">چنل دیسکورد 🎀</a>
-  </section>
-  <div class="visitor-badge" id="visitorBadge" aria-live="polite">👥 تعداد بازدیدکننده: <span id="visitorCount">...</span></div>
-  <script>
-    (function () {
-      var KEY = "visitors", NS = "discord-fozool-prank";
-      var badge = document.getElementById("visitorBadge");
-      var out = document.getElementById("visitorCount");
-      badge.classList.add("show");
-      var seen = false;
-      try { seen = localStorage.getItem("visited_" + KEY) === "1"; } catch (e) {}
 
-      // چند سرویس به ترتیب امتحان میشن؛ اگه یکی بلاک بود بعدی جواب میده
-      var services = [
-        { url: "https://api.counterapi.dev/v1/" + NS + "/" + KEY + (seen ? "" : "/up"),
-          pick: function (d) { return d.count !== undefined ? d.count : d.value; } },
-        { url: "https://abacus.jasoncameron.dev/" + (seen ? "get" : "hit") + "/" + NS + "/" + KEY,
-          pick: function (d) { return d.value; } }
-      ];
+  <main id="app">
+    <div class="stage reveal" style="--d:.05s">
+      <section class="card" id="card">
+        <div class="eyes-wrap">
+          <div class="eyes" id="eyes" aria-hidden="true">
+            <span class="eye"><b class="pupil"></b></span>
+            <span class="eye"><b class="pupil"></b></span>
+          </div>
+          <span class="bubble" id="bubble" aria-live="polite"></span>
+        </div>
 
-      function tryService(i) {
-        if (i >= services.length) { out.textContent = "نامشخص"; return; }
-        var ctl = new AbortController();
-        var t = setTimeout(function () { ctl.abort(); }, 10000);
-        function call() {
-          return fetch(services[i].url, { signal: ctl.signal })
-            .then(function (r) { if (!r.ok) throw 0; return r.json(); });
-        }
-        // بازدیدکننده جدید یک بار شمرده میشه؛ مرورگر تکراری فقط عدد رو میخونه
-        var req = call();
-        req
-          .then(function (d) {
-            clearTimeout(t);
-            var n = services[i].pick(d);
-            if (n === undefined) throw 0;
-            out.textContent = Number(n).toLocaleString("fa-IR");
-            try { localStorage.setItem("visited_" + KEY, "1"); } catch (e) {}
-          })
-          .catch(function () { clearTimeout(t); tryService(i + 1); });
-      }
-      tryService(0);
-    })();
-    document.getElementById("prankButton").addEventListener("click", function () {
-      this.textContent = "دیگه کار از کار گذشته آیدیتو دارم خنگ😂";
-      this.disabled = true;
-      this.setAttribute("aria-live", "polite");
-    });
-  </script>
-</body>
-</html>
+        <h1 aria-label="تو دیگه بیش از اندازه فضولی">
+          <span class="w" style="--i:0" aria-hidden="true">تو</span>
+          <span class="w" style="--i:1" aria-hidden="true">دیگه</span>
+          <span class="w" style="--i:2" aria-hidden="true">بیش</span>
+          <span 
